@@ -20,3 +20,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class, 'login']);
 Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'register']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('pages', \App\Http\Controllers\PageController::class, ['except' => ['index', 'show']]);
+});
+Route::get('/pages', [\App\Http\Controllers\PageController::class, 'index']);
+Route::get('/pages/{page}', [\App\Http\Controllers\PageController::class, 'show']);
