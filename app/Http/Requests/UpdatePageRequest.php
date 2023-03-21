@@ -27,6 +27,7 @@ class UpdatePageRequest extends FormRequest
             'thumbnail' => 'required|string',
             'published' => 'required|boolean',
             'position' => 'required|integer',
+            'locale' => 'required|string|max:10',
         ];
     }
 }

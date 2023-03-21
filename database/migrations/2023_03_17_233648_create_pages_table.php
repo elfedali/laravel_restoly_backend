@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
-            $table->string('body');
+            $table->text('body');
             $table->string('thumbnail');
             $table->boolean('published');
             $table->integer('position');
+            $table->string('locale', 10)->index()->default('en');
         });
     }
 

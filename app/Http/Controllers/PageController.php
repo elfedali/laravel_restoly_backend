@@ -13,12 +13,12 @@ class PageController extends Controller
      */
     public function index()
     {
-        
+
         $pages = Page::all();
-        return $this->success($pages);
+        return response()->json($pages);
     }
 
-    
+
 
     /**
      * Store a newly created resource in storage.
@@ -26,7 +26,7 @@ class PageController extends Controller
     public function store(StorePageRequest $request)
     {
         $page = Page::create($request->validated());
-        return $this->success($page);
+        return response()->json($page);
     }
 
     /**
@@ -34,10 +34,10 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        return $this->success($page);
+        return response()->json($page);
     }
 
-    
+
 
     /**
      * Update the specified resource in storage.
@@ -45,7 +45,7 @@ class PageController extends Controller
     public function update(UpdatePageRequest $request, Page $page)
     {
         $page->update($request->validated());
-        return $this->success($page);
+        return response()->json($page);
     }
 
     /**
@@ -54,14 +54,6 @@ class PageController extends Controller
     public function destroy(Page $page)
     {
         $page->delete();
-        return $this->success($page);
-    }
-
-    private function success($data)
-    {
-        return response()->json([
-            'success' => true,
-            'data' => $data
-        ]);
+        return response()->json($page);
     }
 }

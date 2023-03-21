@@ -22,6 +22,9 @@ class PageFactory extends Factory
             'thumbnail' => $this->faker->imageUrl,
             'published' => $this->faker->boolean,
             'position' => $this->faker->numberBetween(0, 100),
+            // locale  value en,fr,ar
+            'locale' => $this->faker->randomElement(['en', 'fr', 'ar']),
+
         ];
     }
 }
