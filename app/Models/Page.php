@@ -15,6 +15,6 @@ class Page extends Model
         'thumbnail',
         'published',
         'position',
+        'locale',
     ];
-    
 }

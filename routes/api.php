@@ -23,6 +23,10 @@ Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('pages', \App\Http\Controllers\PageController::class, ['except' => ['index', 'show']]);
+    Route::apiResource('categories', \App\Http\Controllers\CategoryController::class, ['except' => ['index', 'show']]);
 });
 Route::get('/pages', [\App\Http\Controllers\PageController::class, 'index']);
 Route::get('/pages/{page}', [\App\Http\Controllers\PageController::class, 'show']);
+
+Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
+Route::get('/categories/{category}', [\App\Http\Controllers\CategoryController::class, 'show']);
