@@ -31,6 +31,6 @@ Route::get('/pages/{page}', [\App\Http\Controllers\PageController::class, 'show'
 Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
 Route::get('/categories/{category}', [\App\Http\Controllers\CategoryController::class, 'show']);
 
-Route::apiResource('b', \App\Http\Controllers\BusinessController::class, ['except' => ['index', 'show']]); // TODO: remove this line when.
+Route::apiResource('b', \App\Http\Controllers\BusinessController::class, ['except' => ['index', 'show']]); // TODO: add auth middleware.
 Route::get('/b', [\App\Http\Controllers\BusinessController::class, 'index']);
 Route::get('/b/{business}', [\App\Http\Controllers\BusinessController::class, 'show']);

@@ -16,9 +16,11 @@ class Category extends Model
      */
     protected $fillable = [
         'name',
+        'slug',
         'position',
         'is_active',
         'locale',
+        'parent_id',
     ];
 
     /**

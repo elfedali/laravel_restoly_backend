@@ -17,10 +17,9 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name,
+            /*  'name' => $this->faker->word,
             'position' => $this->faker->numberBetween(1, 10),
             'is_active' => $this->faker->boolean(),
-            'locale' => $this->faker->randomElement(['en', 'fr', 'ar']),
-        ];
+            'locale' => $this->faker->randomElement(['en', 'fr', 'ar']), */];
     }
 }

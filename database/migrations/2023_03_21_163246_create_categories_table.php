@@ -15,9 +15,12 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name')->index();
+            $table->string('slug')->index();
             $table->integer("position");
             $table->boolean("is_active")->default(true);
             $table->string('locale', 2)->default('en');
+            // parent_id
+            $table->foreignId('parent_id')->nullable()->constrained('categories');
         });
     }
 

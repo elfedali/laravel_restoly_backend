@@ -31,8 +31,8 @@ return new class extends Migration
             $table->string('linkedin');
             $table->string('youtube'); */
 
-
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('category_id')->constrained(); // select from categories table ( restaurant, cafe, hotel, etc )
         });
     }
 
