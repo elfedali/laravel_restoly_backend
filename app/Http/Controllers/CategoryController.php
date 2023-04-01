@@ -50,4 +50,12 @@ class CategoryController extends Controller
         $category->delete();
         return  response()->json($category);
     }
+    /**
+     * Return the children of a category, where the slug is the key
+     */
+    public function getChildren($slug)
+    {
+        $category = Category::where('slug', $slug)->first();
+        return  response()->json($category->children);
+    }
 }

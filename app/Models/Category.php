@@ -37,4 +37,10 @@ class Category extends Model
     {
         return $this->is_active;
     }
+
+    // children
+    public function children()
+    {
+        return $this->hasMany(Category::class, 'parent_id');
+    }
 }

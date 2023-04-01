@@ -30,6 +30,8 @@ Route::get('/pages/{page}', [\App\Http\Controllers\PageController::class, 'show'
 
 Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
 Route::get('/categories/{category}', [\App\Http\Controllers\CategoryController::class, 'show']);
+Route::get('/categories/{slug}/children', [\App\Http\Controllers\CategoryController::class, 'getChildren']);
+
 
 Route::apiResource('b', \App\Http\Controllers\BusinessController::class, ['except' => ['index', 'show']]); // TODO: add auth middleware.
 Route::get('/b', [\App\Http\Controllers\BusinessController::class, 'index']);
