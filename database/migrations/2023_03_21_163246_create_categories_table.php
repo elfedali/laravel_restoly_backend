@@ -14,11 +14,19 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
             $table->string('name')->index();
             $table->string('slug')->index();
-            $table->integer("position");
+
+            $table->string('description')->nullable();
+            $table->string('icon')->nullable();
+            $table->string('image')->nullable();
+            $table->string('color')->nullable();
+
+            $table->integer("position")->default(0);
             $table->boolean("is_active")->default(true);
             $table->string('locale', 2)->default('en');
+
             // parent_id
             $table->foreignId('parent_id')->nullable()->constrained('categories');
         });

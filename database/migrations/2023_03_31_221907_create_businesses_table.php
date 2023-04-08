@@ -16,20 +16,25 @@ return new class extends Migration
             $table->timestamps();
 
             $table->string('name');
-            $table->string('description');
-            $table->string('address');
-            $table->string('phone');
-            /*  $table->string('city');
-            $table->string('state');
-            $table->string('zip');
-            $table->string('country'); */
-            /*  $table->string('website'); */
-            /* $table->string('logo'); */
-            /*   $table->string('facebook');
-            $table->string('twitter');
-            $table->string('instagram');
-            $table->string('linkedin');
-            $table->string('youtube'); */
+            $table->string('slug')->unique();
+            $table->string('description')->nullable();
+
+            $table->string('phone_one');
+            $table->string('phone_two')->nullable();
+
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('zip')->nullable();
+            $table->string('country')->default('Morocco');
+
+            $table->string('website')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('youtube')->nullable();
 
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained(); // select from categories table ( restaurant, cafe, hotel, etc )
