@@ -11,6 +11,27 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // kitchen types : American, Italian, Mexican, etc
+        Schema::create('kitchens', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->string('description')->nullable();
+            $table->string('language')->default('en');
+        });
+        // delivery, pickup, dine-in
+        Schema::create('services', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->string('description')->nullable();
+            $table->string('language')->default('en');
+        });
+        // business types : restaurant, cafe, etc
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
@@ -19,17 +40,26 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('description')->nullable();
 
-            $table->string('phone_one');
+            $table->string('phone_one')->nullable();
             $table->string('phone_two')->nullable();
+
+            $table->string('email')->nullable();
+
+            $table->boolean('is_verified')->default(false);
+            $table->boolean('is_active')->default(true);
+
+            $table->boolean('without_reservation')->default(false);
+
 
             $table->string('address')->nullable();
             $table->string('city')->nullable();
-            $table->string('state')->nullable();
+            $table->string('region')->nullable();
             $table->string('zip')->nullable();
             $table->string('country')->default('Morocco');
+            $table->string('logo')->nullable();
+
 
             $table->string('website')->nullable();
-            $table->string('logo')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();
@@ -39,6 +69,33 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained(); // select from categories table ( restaurant, cafe, hotel, etc )
         });
+
+        Schema::create('business_kitchen', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+
+            $table->foreignId('business_id')->constrained();
+            $table->foreignId('kitchen_id')->constrained();
+        });
+
+        Schema::create('business_service', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+
+            $table->foreignId('business_id')->constrained();
+            $table->foreignId('service_id')->constrained();
+        });
+
+        Schema::create('hours', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+
+            $table->integer('day_of_week');
+            $table->time('open_time')->nullable();
+            $table->time('close_time')->nullable();
+
+            $table->foreignId('business_id')->constrained();
+        });
     }
 
     /**
@@ -47,5 +104,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('businesses');
+        Schema::dropIfExists('business_kitchen');
+        Schema::dropIfExists('business_service');
+        Schema::dropIfExists('hours');
     }
 };

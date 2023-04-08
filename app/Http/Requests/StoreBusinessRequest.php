@@ -23,10 +23,27 @@ class StoreBusinessRequest extends FormRequest
     {
         return [
             "name" => "required|string",
-            "description" => "required|string",
-            "address" => "required|string",
-            "phone" => "required|string",
-            "user_id" => "required|integer|exists:users,id"
+            "slug" => "required|string|unique:businesses,slug",
+            "description" => "nullable|string",
+            "phone_one" => "nullable|string",
+            "phone_two" => "nullable|string",
+
+            "address" => "nullable|string",
+            "city" => "nullable|string",
+            "state" => "nullable|string",
+            "zip" => "nullable|string",
+            "country" => "nullable|string",
+            "logo" => "nullable|string",
+
+            "website" => "nullable|string",
+            "facebook" => "nullable|string",
+            "twitter" => "nullable|string",
+            "instagram" => "nullable|string",
+            "linkedin" => "nullable|string",
+            "youtube" => "nullable|string",
+
+            "user_id" => "required|integer|exists:users,id",
+            "category_id" => "required|integer|exists:categories,id"
         ];
     }
 }

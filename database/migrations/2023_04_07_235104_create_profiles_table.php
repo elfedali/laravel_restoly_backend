@@ -26,7 +26,14 @@ return new class extends Migration
             $table->string('state')->nullable();
             $table->string('zip')->nullable();
             $table->string('country')->default('Morocco');
-         
+
+            $table->boolean('is_verified')->default(false);
+            $table->boolean('is_active')->default(true);
+            // verifications code for phone and email
+            $table->string('phone_verification_code')->nullable();
+            $table->string('email_verification_code')->nullable();
+
+
 
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             // add a unique constraint to the user_id column
@@ -36,8 +43,7 @@ return new class extends Migration
             // add index to the phone column
             $table->index('phone');
             // add index to the user_id column
-            $table->index('user_id'); 
-
+            $table->index('user_id');
         });
     }
 

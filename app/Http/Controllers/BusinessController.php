@@ -23,7 +23,7 @@ class BusinessController extends Controller
      */
     public function store(StoreBusinessRequest $request)
     {
-        return Business::create($request->validated());
+        return  Business::create($request->validated());
     }
 
     /**
@@ -50,7 +50,16 @@ class BusinessController extends Controller
      */
     public function destroy(Business $business)
     {
-        $business->delete();
-        return $business;
+
+
+        if ($business->delete()) {
+            return response()->json([
+                'message' => 'Business deleted successfully'
+            ]);
+        }
+
+        return response()->json([
+            'message' => 'Business could not be deleted'
+        ], 500);
     }
 }

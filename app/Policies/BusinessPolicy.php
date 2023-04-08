@@ -45,7 +45,10 @@ class BusinessPolicy
      */
     public function delete(User $user, Business $business): bool
     {
-        //
+
+        return $user->id === $business->user_id
+            ? true
+            : false;
     }
 
     /**
@@ -61,6 +64,8 @@ class BusinessPolicy
      */
     public function forceDelete(User $user, Business $business): bool
     {
-        //
+        return $user->id === $business->user_id
+            ? true
+            : false;
     }
 }

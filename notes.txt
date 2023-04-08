@@ -1,3 +1,7 @@
 Restaurant point-of-sale (POS) systems are a critical part of any restaurant business.
 They allow restaurant owners to track sales, manage inventory, manage tables and run reports.
 A good restaurant POS system can make a big difference in a restaurant's bottom line.Mar 3, 20
+
+
+
+TODO: Add plats: dishes database to autosuggest

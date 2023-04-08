@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('path')->nullable(); // storage path
             $table->string('url')->nullable(); // public url
 
+            // is main file
+            $table->boolean('is_main')->default(false);
+
             $table->string('extension')->nullable(); // file extension (jpg, png, pdf, etc)
             $table->string('mime_type')->nullable(); // mime type of file (image/jpeg, image/png, application/pdf, etc)
 
