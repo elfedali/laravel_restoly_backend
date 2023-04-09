@@ -36,3 +36,17 @@ Route::get('/categories/{slug}/children', [\App\Http\Controllers\CategoryControl
 Route::apiResource('b', \App\Http\Controllers\BusinessController::class, ['except' => ['index', 'show']]); // TODO: add auth middleware.
 Route::get('/b', [\App\Http\Controllers\BusinessController::class, 'index']);
 Route::get('/b/{business}', [\App\Http\Controllers\BusinessController::class, 'show']);
+Route::get('/b/{business}/reviews', [\App\Http\Controllers\BusinessController::class, 'getReviews']);
+
+
+Route::apiResource('coutries', \App\Http\Controllers\CountryController::class, ['except' => ['index', 'show']]); // TODO: add auth middleware.
+Route::get('/coutries', [\App\Http\Controllers\CountryController::class, 'index']);
+Route::get('/coutries/{country}', [\App\Http\Controllers\CountryController::class, 'show']);
+
+Route::apiResource('cities', \App\Http\Controllers\CityController::class, ['except' => ['index', 'show']]); // TODO: add auth middleware.
+Route::get('/cities', [\App\Http\Controllers\CityController::class, 'index']);
+Route::get('/cities/{city}', [\App\Http\Controllers\CityController::class, 'show']);
+
+Route::apiResource('regions', \App\Http\Controllers\RegionController::class, ['except' => ['index', 'show']]); // TODO: add auth middleware.
+Route::get('/regions', [\App\Http\Controllers\RegionController::class, 'index']);
+Route::get('/regions/{region}', [\App\Http\Controllers\RegionController::class, 'show']);
