@@ -19,10 +19,12 @@ return new class extends Migration
             $table->string('slug')->index();
             $table->string('code')->index();
             $table->string('flag')->nullable();
-            $table->string('phone_code')->nullable();
-            $table->string('currency')->nullable();
-            $table->string('currency_symbol')->nullable();
-            $table->string('currency_code')->nullable();
+            $table->string('phone_code');
+            $table->string('currency');
+            $table->string('currency_symbol');
+
+            // is active
+            $table->boolean('is_active')->default(true);
         });
 
         // add cities

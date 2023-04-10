@@ -12,15 +12,9 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+
+        return Review::all();
     }
 
     /**
@@ -28,7 +22,22 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // validate request
+        $request->validate([
+            'comment' => 'required | string | max:255',
+            'rating' => 'required | integer | min:1 | max:5',
+            'business_id' => 'required | exists:businesses,id',
+        ]);
+
+        // create new review
+        $review = Review::create($request->all());
+
+        // return response
+        return response()->json([
+            'message' => 'Review created successfully',
+            'review' => $review
+        ], 201);
     }
 
     /**
@@ -36,15 +45,9 @@ class ReviewController extends Controller
      */
     public function show(Review $review)
     {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Review $review)
-    {
-        //
+        // return $review with business and user
+        return $review->load('business', 'user');
     }
 
     /**
@@ -52,7 +55,22 @@ class ReviewController extends Controller
      */
     public function update(Request $request, Review $review)
     {
-        //
+
+        // validate request
+        $request->validate([
+            'comment' => 'required | string | max:255',
+            'rating' => 'required | integer | min:1 | max:5',
+            'business_id' => 'required | exists:businesses,id',
+        ]);
+
+        // update review
+        $review->update($request->all());
+
+        // return response
+        return response()->json([
+            'message' => 'Review updated successfully',
+            'review' => $review
+        ], 200);
     }
 
     /**
@@ -60,6 +78,12 @@ class ReviewController extends Controller
      */
     public function destroy(Review $review)
     {
-        //
+        // delete review
+        $review->delete();
+
+        // return response
+        return response()->json([
+            'message' => 'Review deleted successfully',
+        ], 200);
     }
 }

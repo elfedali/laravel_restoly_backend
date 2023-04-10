@@ -14,4 +14,9 @@ class Region extends Model
         "slug",
         "city_id"
     ];
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
 }

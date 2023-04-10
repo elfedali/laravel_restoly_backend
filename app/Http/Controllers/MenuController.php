@@ -12,15 +12,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return Menu::all();
     }
 
     /**
@@ -28,7 +21,39 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validate request 
+        //"name",
+        // "slug",
+        // "description",
+        // "icon",
+        // "image",
+        // "color",
+        // "position",
+        // "is_active",
+        // "business_id"
+        $request->validate([
+
+            'name' => 'required|string|unique:menus,name',
+            'slug' => 'required|unique:menus,slug',
+            'description' => 'string | nullable',
+            'icon' => 'string   | nullable',
+            'image' => 'string | nullable',
+            'color' => 'string | nullable',
+            'position' => 'integer | nullable',
+            'is_active' => 'boolean | nullable',
+            'business_id' => 'required|exists:businesses,id',
+
+        ]);
+
+        // create new menu
+        $menu = Menu::create($request->all());
+
+        // return response
+
+        return response()->json([
+            'message' => 'Menu created successfully',
+            'menu' => $menu
+        ], 201);
     }
 
     /**
@@ -36,15 +61,8 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Menu $menu)
-    {
-        //
+        // return $menu with items
+        return $menu->load('dishes');
     }
 
     /**
@@ -52,7 +70,28 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        //
+        // validate request
+        $request->validate([
+            'name' => 'required|string|unique:menus,name,' . $menu->id,
+            'slug' => 'required|unique:menus,slug,' . $menu->id,
+            'description' => 'string | nullable',
+            'icon' => 'string   | nullable',
+            'image' => 'string | nullable',
+            'color' => 'string | nullable',
+            'position' => 'integer | nullable',
+            'is_active' => 'boolean | nullable',
+            'business_id' => 'required|exists:businesses,id',
+        ]);
+
+        // update menu
+        $menu->update($request->all());
+
+        // return response
+
+        return response()->json([
+            'message' => 'Menu updated successfully',
+            'menu' => $menu
+        ], 200);
     }
 
     /**
@@ -60,6 +99,13 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        //
+        // delete menu
+        $menu->delete();
+
+        // return response
+
+        return response()->json([
+            'message' => 'Menu deleted successfully',
+        ], 200);
     }
 }

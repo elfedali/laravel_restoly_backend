@@ -25,4 +25,9 @@ class Menu extends Model
     {
         return $this->belongsTo(Business::class);
     }
+
+    public function dishes()
+    {
+        return $this->hasMany(Dish::class);
+    }
 }

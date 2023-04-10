@@ -21,6 +21,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class, 'login']);
 Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'register']);
 
+//
+Route::get('/user/{user}', [\App\Http\Controllers\User\ProfileController::class, 'show']);
+Route::put('/user/{user}', [\App\Http\Controllers\User\ProfileController::class, 'update']);
+Route::put('/user/{user}/password', [\App\Http\Controllers\User\ProfileController::class, 'updatePassword']);
+
+
+
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('pages', \App\Http\Controllers\PageController::class, ['except' => ['index', 'show']]);
     Route::apiResource('categories', \App\Http\Controllers\CategoryController::class, ['except' => ['index', 'show']]);
@@ -50,3 +58,9 @@ Route::get('/cities/{city}', [\App\Http\Controllers\CityController::class, 'show
 Route::apiResource('regions', \App\Http\Controllers\RegionController::class, ['except' => ['index', 'show']]); // TODO: add auth middleware.
 Route::get('/regions', [\App\Http\Controllers\RegionController::class, 'index']);
 Route::get('/regions/{region}', [\App\Http\Controllers\RegionController::class, 'show']);
+
+
+
+Route::apiResource('reviews', \App\Http\Controllers\ReviewController::class, ['except' => ['index', 'show']]); // TODO: add auth middleware.
+Route::get('/reviews', [\App\Http\Controllers\ReviewController::class, 'index']);
+Route::get('/reviews/{review}', [\App\Http\Controllers\ReviewController::class, 'show']);

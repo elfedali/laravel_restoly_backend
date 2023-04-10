@@ -12,23 +12,34 @@ class CountryController extends Controller
      */
     public function index()
     {
-        //
+        return Country::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        // validate request
+        $request->validate([
+            'name' => 'required|unique:countries,name',
+            'code' => 'required|unique:countries,code',
+            "phone_code" => "required|unique:countries,phone_code",
+            "currency" => "required|unique:countries,currency",
+            "currency_symbol" => "required|unique:countries,currency_symbol",
+
+        ]);
+
+        // create new country
+        $country = Country::create($request->all());
+
+        // return response
+        return response()->json([
+            'message' => 'Country created successfully',
+            'country' => $country
+        ], 201);
     }
 
     /**
@@ -36,23 +47,36 @@ class CountryController extends Controller
      */
     public function show(Country $country)
     {
-        //
+        // return $country with cities
+        return $country->load('cities');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Country $country)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Country $country)
     {
-        //
+
+        // validate request
+        $request->validate([
+            'name' => 'required|unique:countries,name,' . $country->id,
+            'code' => 'required|unique:countries,code,' . $country->id,
+            "phone_code" => "required|unique:countries,phone_code," . $country->id,
+            "currency" => "required|unique:countries,currency," . $country->id,
+            "currency_symbol" => "required|unique:countries,currency_symbol," . $country->id,
+
+        ]);
+
+        // update country
+        $country->update($request->all());
+
+        // return response
+        return response()->json([
+            'message' => 'Country updated successfully',
+            'country' => $country
+        ], 200);
     }
 
     /**
@@ -60,6 +84,23 @@ class CountryController extends Controller
      */
     public function destroy(Country $country)
     {
-        //
+        if ($country->cities()->count() > 0) {
+            return response()->json([
+                'message' => 'Country has cities, you can not delete it',
+            ], 400);
+        }
+
+        // delete country
+        if ($country->delete()) {
+            // return response
+            return response()->json([
+                'message' => 'Country deleted successfully',
+            ], 200);
+        } else {
+            // return response
+            return response()->json([
+                'message' => 'Country not deleted',
+            ], 400);
+        }
     }
 }

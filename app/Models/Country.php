@@ -17,7 +17,7 @@ class Country extends Model
         "phone_code",
         "currency",
         "currency_symbol",
-        "currency_code",
+        "is_active",
     ];
 
     public function cities()
