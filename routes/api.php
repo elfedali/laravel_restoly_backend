@@ -25,6 +25,7 @@ Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 
 Route::get('/user/{user}', [\App\Http\Controllers\User\ProfileController::class, 'show']);
 Route::put('/user/{user}', [\App\Http\Controllers\User\ProfileController::class, 'update']);
 Route::put('/user/{user}/password', [\App\Http\Controllers\User\ProfileController::class, 'updatePassword']);
+Route::get('/user/{user}/has-profile', [\App\Http\Controllers\User\ProfileController::class, 'hasProfile']);
 
 
 
