@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// users is the user management page
+Route::get('/users', [App\Http\Controllers\Web\UsersController::class, 'index'])->name('web.users');
+// users/{user} is the user profile page
+Route::get('/users/{user}', [App\Http\Controllers\Web\UsersController::class, 'show'])->name('web.users.show');
