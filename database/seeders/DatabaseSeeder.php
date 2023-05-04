@@ -14,8 +14,24 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
+        $this->call([
+            CountrySeeder::class,
+        ]);
+
         \App\Models\User::factory()->create([
             'email' => 'webmaster@restoly.ma',
+            'role' => 'super_admin',
+        ]);
+
+
+        \App\Models\User::factory()->create([
+            'email' => 'admin@restoly.ma',
+            'role' => 'admin',
+        ]);
+
+        \App\Models\User::factory()->create([
+            'email' => 'subscriber@restoly.ma',
+            'role' => 'subscriber',
         ]);
 
 

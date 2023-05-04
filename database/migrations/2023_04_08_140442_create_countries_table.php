@@ -34,6 +34,7 @@ return new class extends Migration
 
             $table->string('name')->index();
             $table->string('slug')->index();
+            $table->boolean('is_active')->default(true);
 
             // country_id
             $table->foreignId('country_id')->nullable()->constrained('countries');
@@ -46,6 +47,7 @@ return new class extends Migration
 
             $table->string('name')->index();
             $table->string('slug')->index();
+            $table->boolean('is_active')->default(true);
 
             // city_id
             $table->foreignId('city_id')->nullable()->constrained('cities');
