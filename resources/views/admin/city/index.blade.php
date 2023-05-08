@@ -3,10 +3,15 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-6">
                 <h1>Cities</h1>
             </div>
-            <!-- /.col-12 -->
+            <!-- /.col-6 -->
+            <div class="col-6">
+                <a href="{{ route('web.city.create') }}" class="btn btn-success float-end">
+                    <i class="bi bi-plus-circle"></i> &nbsp;
+                    Add city</a>
+            </div>
         </div>
         <!-- /.row -->
         <div class="row">
@@ -58,7 +63,8 @@
                                         class="d-inline-block">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger">
+                                        <button type="submit" class="btn btn-sm btn-danger"
+                                            onclick="return confirm('Are you sure you want to delete this city?')">
                                             <i class="bi bi-trash"></i> &nbsp;
                                             Delete
                                         </button>

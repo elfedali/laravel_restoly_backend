@@ -7,7 +7,7 @@
                 <h1>Add new city in *{{ $country->name }}</h1>
                 <form action="{{ route('web.city.store', ['country' => $country]) }}" method="POST">
                     @csrf
-                    <input type="hidden" name="country_id" value="{{ $country->id }}">
+                   
                     <div class="mb-3">
                         <label for="name" class="form-label">City <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="City"
@@ -26,6 +26,34 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
+
+                    {{-- select country from $countries --}}
+                    <div class="mb-3">
+                        <select name="country_id" id="country_id" class="form-control">
+                            <option value="">Select Country</option>
+                            @foreach ($countries as $country)
+                                <option value="{{ $country->id }}">{{ $country->name }}</option>
+                            @endforeach
+                        </select> 
+                         @error('country_id')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            
+                    </div>
+                    {{-- is active --}}
+                    <div class="mb-3">
+                        <label for="is_active" class="form-label">Is Active <span class="text-danger">*</span></label>
+                        <select name="is_active" id="is_active" class="form-control">
+                            <option value="">Select Status</option>
+                            <option value="1">Active</option>
+                            <option value="0">InActive</option>
+                        </select>
+                        @error('is_active')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    
+
 
                     <button type="submit" class="btn btn-primary">Add</button>
                 </form>

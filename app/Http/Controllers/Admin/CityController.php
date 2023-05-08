@@ -23,8 +23,8 @@ class CityController extends Controller
      */
     public function create(Country $country)
     {
-
-        return view('admin.city.create', compact('country'));
+        $countries = Country::all();
+        return view('admin.city.create', compact('country', 'countries'));
     }
 
     /**
@@ -37,11 +37,17 @@ class CityController extends Controller
             'name' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:cities',
             'country_id' => 'required|integer|exists:countries,id',
+            'is_active' => 'boolean',
         ]);
 
+        if ($request->is_active == 'on') {
+            $request->is_active = true;
+        } else {
+            $request->is_active = false;
+        }
         $city = City::create($request->all());
 
-        return redirect()->route('web.country.show', $city->country_id)->with('success', 'City created successfully.');
+        return redirect()->route('web.city.index')->with('success', 'City created successfully.');
     }
 
     /**
@@ -57,7 +63,8 @@ class CityController extends Controller
      */
     public function edit(City $city)
     {
-        //
+        $countries = Country::all();
+        return view('admin.city.edit', compact('city', 'countries'));
     }
 
     /**
@@ -65,7 +72,23 @@ class CityController extends Controller
      */
     public function update(Request $request, City $city)
     {
-        //
+        // validate data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:cities,slug,' . $city->id,
+            'country_id' => 'required|integer|exists:countries,id',
+            'is_active' => 'boolean',
+        ]);
+
+        if ($request->is_active == 'on') {
+            $request->is_active = true;
+        } else {
+            $request->is_active = false;
+        }
+
+        $city->update($request->all());
+
+        return redirect()->route('web.city.index')->with('success', 'City updated successfully.');
     }
 
     /**
@@ -73,6 +96,8 @@ class CityController extends Controller
      */
     public function destroy(City $city)
     {
-        //
+        $city->delete();
+        return
+            redirect()->route('web.city.index')->with('success', 'City updated successfully.');
     }
 }

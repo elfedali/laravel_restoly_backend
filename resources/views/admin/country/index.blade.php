@@ -22,8 +22,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Country</th>
-
+                            <th>Name</th>
                             <th>is Active</th>
                             <th>Created At</th>
                             <th>Updated At</th>
