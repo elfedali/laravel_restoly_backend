@@ -36,11 +36,11 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('web.users') }}">{{ __('Users') }}</a>
+                            <a class="nav-link" href="{{ route('web.user.index') }}">{{ __('Users') }}</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('web.country.index') }}">{{ __('Country') }}</a>
+                            <a class="nav-link" href="{{ route('web.country.index') }}">{{ __('Countries') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('web.city.index') }}">{{ __('Cities') }}</a>
@@ -102,6 +102,21 @@
                         </ul>
                     </div>
                 @endif
+                {{-- show flash messages --}}
+                @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session()->get('success') }}
+                        {{-- close button --}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @elseif(session()->has('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session()->get('error') }}
+                        {{-- close button --}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
             </div>
             @yield('content')
         </main>

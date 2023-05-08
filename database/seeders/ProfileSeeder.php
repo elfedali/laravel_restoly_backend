@@ -20,7 +20,6 @@ class ProfileSeeder extends Seeder
             'phone' => '0600000000',
             'address' => 'Rue 1, Sidi Maarouf',
             'city' => 'Casablanca',
-            'state' => null,
             'zip' => 90522,
             'country' => 'Morocco',
             'is_verified' => true,

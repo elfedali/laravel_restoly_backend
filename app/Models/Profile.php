@@ -13,10 +13,9 @@ class Profile extends Model
         'first_name',
         'last_name',
         'phone',
-        'address',
         'avatar',
+        'address',
         'city',
-        'state',
         'zip',
         'country',
         'user_id'
@@ -46,5 +45,4 @@ class Profile extends Model
     {
         $this->attributes['last_name'] = strtoupper($value);
     }
-
 }

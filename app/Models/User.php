@@ -12,6 +12,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    const ROLE_SUPERADMIN = 'super_admin';
+    const ROLE_ADMIN = 'admin';
+    const ROLE_SUBSCRIBER = 'subscriber';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -20,6 +24,8 @@ class User extends Authenticatable
     protected $fillable = [
         'email',
         'password',
+        'role',
+        'is_active',
     ];
 
     /**
@@ -51,5 +57,4 @@ class User extends Authenticatable
     {
         $this->attributes['email'] = strtolower($value);
     }
-
 }

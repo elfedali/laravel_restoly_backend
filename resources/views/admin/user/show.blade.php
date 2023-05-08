@@ -4,54 +4,52 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Show {{ $city->country->name }} : {{ $city->name }}</h1>
+                <h1>
+                    Show user #{{ $user->id }}
+                </h1>
             </div>
-            <!-- /.ol-12 -->
+            <!-- /.col-12 -->
         </div>
         <!-- /.row -->
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card mt-3">
                     <div class="card-body">
                         <table class="table">
                             <tr>
-                                <td>Name :</td>
-                                <td>{{ $city->name }}</td>
+                                <th> ID </th>
+                                <td> {{ $user->id }} </td>
                             </tr>
                             <tr>
-                                <td>Slug :</td>
-                                <td>{{ $city->slug }}</td>
+                                <th> Email </th>
+                                <td> {{ $user->email }} </td>
                             </tr>
                             <tr>
-                                <td>Country :</td>
-                                <td>{{ $city->country->name }}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Is active :</td>
+                                <th> Is Active </th>
                                 <td>
-                                    @if ($city->is_active)
+                                    @if ($user->is_active == 1)
                                         <span class="badge bg-success">Active</span>
                                     @else
                                         <span class="badge bg-danger">Inactive</span>
                                     @endif
-
                                 </td>
                             </tr>
-
                             <tr>
-                                <td>Created At :</td>
-                                <td>{{ $city->created_at }}</td>
+                                <th> Created At </th>
+                                <td> {{ $user->created_at }} </td>
                             </tr>
-
                             <tr>
-                                <td>Updated At :</td>
-                                <td>{{ $city->updated_at }}</td>
+                                <th> Updated At </th>
+                                <td> {{ $user->updated_at }} </td>
+                            </tr>
+                            <tr>
+                                <th>Role </th>
+                                <td> {{ $user->role }} </td>
                             </tr>
 
                         </table>
-                        <a href="{{ route('web.country.show', ['country' => $city->country]) }}"
-                            class="btn btn-link">Back</a>
+                        <a href="{{ route('web.user.edit', $user->id) }}" class="btn btn-link ">Edit</a>
+                        <a href="{{ route('web.user.index') }}" class="btn btn-link">Cancel</a>
 
                     </div>
                     <!-- /.card-body -->
@@ -60,6 +58,7 @@
             </div>
             <!-- /.col-12 -->
         </div>
+        <!-- /.row -->
     </div>
     <!-- /.container -->
 @endsection

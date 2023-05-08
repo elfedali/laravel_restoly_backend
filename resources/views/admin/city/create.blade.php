@@ -4,10 +4,10 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Add new city in *{{ $country->name }}</h1>
+                <h1>Add new city </h1>
                 <form action="{{ route('web.city.store', ['country' => $country]) }}" method="POST">
                     @csrf
-                   
+
                     <div class="mb-3">
                         <label for="name" class="form-label">City <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="City"
@@ -34,11 +34,11 @@
                             @foreach ($countries as $country)
                                 <option value="{{ $country->id }}">{{ $country->name }}</option>
                             @endforeach
-                        </select> 
-                         @error('country_id')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                            
+                        </select>
+                        @error('country_id')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+
                     </div>
                     {{-- is active --}}
                     <div class="mb-3">
@@ -52,7 +52,7 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    
+
 
 
                     <button type="submit" class="btn btn-primary">Add</button>

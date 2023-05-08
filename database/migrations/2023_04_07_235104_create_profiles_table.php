@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address')->nullable();
             $table->string('city')->nullable();
-            $table->string('state')->nullable();
             $table->string('zip')->nullable();
             $table->string('country')->default('Morocco');
 
