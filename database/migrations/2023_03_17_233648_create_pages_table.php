@@ -16,10 +16,10 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
             $table->text('body');
-            $table->string('thumbnail');
-            $table->boolean('published');
+            $table->string('thumbnail')->nullable();
             $table->integer('position');
             $table->string('locale', 10)->index()->default('en');
+            $table->boolean('is_active')->default(true);
         });
     }
 

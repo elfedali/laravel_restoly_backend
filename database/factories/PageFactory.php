@@ -19,8 +19,8 @@ class PageFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'body' => $this->faker->paragraph,
-            'thumbnail' => $this->faker->imageUrl,
-            'published' => $this->faker->boolean,
+            //'thumbnail' => $this->faker->imageUrl,
+            'is_active' => $this->faker->boolean,
             'position' => $this->faker->numberBetween(0, 100),
             // locale  value en,fr,ar
             'locale' => $this->faker->randomElement(['en', 'fr', 'ar']),

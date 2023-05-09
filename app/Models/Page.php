@@ -13,8 +13,8 @@ class Page extends Model
         'title',
         'body',
         'thumbnail',
-        'published',
         'position',
         'locale',
+        'is_active',
     ];
 }

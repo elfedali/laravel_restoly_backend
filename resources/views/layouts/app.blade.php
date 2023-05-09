@@ -45,7 +45,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('web.city.index') }}">{{ __('Cities') }}</a>
                         </li> --}}
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('web.page.index') }}">{{ __('Pages') }}</a>
+                        </li>
 
                     </ul>
 
