@@ -98,6 +98,6 @@ class CityController extends Controller
     {
         $city->delete();
         return
-            redirect()->route('web.city.index')->with('success', 'City updated successfully.');
+            redirect()->route('web.city.index')->with('success', 'City deleted successfully.');
     }
 }

@@ -16,6 +16,25 @@ class User extends Authenticatable
     const ROLE_ADMIN = 'admin';
     const ROLE_SUBSCRIBER = 'subscriber';
 
+    const ROLES = [
+        self::ROLE_SUPERADMIN,
+        self::ROLE_ADMIN,
+        self::ROLE_SUBSCRIBER,
+    ];
+    // when creating a new user, the default role is subscriber
+    protected $attributes = [
+        'role' => self::ROLE_SUBSCRIBER,
+    ];
+    // create a profile for the user when creating a new user
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($user) {
+            $user->profile()->create();
+        });
+    }
+
     /**
      * The attributes that are mass assignable.
      *

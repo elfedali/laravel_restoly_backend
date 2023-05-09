@@ -102,7 +102,7 @@ class UserController extends Controller
     {
         $user->delete();
         return
-            redirect()->route('web.user.index')->with('success', 'User updated successfully.');
+            redirect()->route('web.user.index')->with('success', 'User deleted successfully.');
     }
     public function edit_password(User $user)
     {
