@@ -39,12 +39,12 @@
                             <a class="nav-link" href="{{ route('web.user.index') }}">{{ __('Users') }}</a>
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('web.country.index') }}">{{ __('Countries') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('web.city.index') }}">{{ __('Cities') }}</a>
-                        </li>
+                        </li> --}}
 
 
                     </ul>

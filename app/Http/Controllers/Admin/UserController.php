@@ -92,7 +92,7 @@ class UserController extends Controller
         // update user email 
         $user->update($request->all());
 
-        return redirect()->route('web.user.index')->with('success', 'User updated successfully.');
+        return redirect()->route('web.user.edit', $user->id)->with('success', 'User updated successfully.');
     }
 
     /**

@@ -12,11 +12,11 @@ class Profile extends Model
     protected $fillable = [
         'first_name',
         'last_name',
+        //'avatar',
         'phone',
-        'avatar',
         'address',
         'city',
-        'zip',
+        'zip_code',
         'country',
         'user_id'
     ];
@@ -31,10 +31,6 @@ class Profile extends Model
         return $this->first_name . ' ' . $this->last_name;
     }
 
-    public function getAvatarAttribute($value)
-    {
-        return $value ? asset('storage/' . $value) : asset('images/avatar.png');
-    }
     // uppercase the first letter of the first name
     public function setFirstNameAttribute($value)
     {

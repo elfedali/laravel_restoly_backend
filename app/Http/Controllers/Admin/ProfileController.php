@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -12,36 +13,31 @@ class ProfileController extends Controller
     {
         // validate profile data
         $request->validate([
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
+            'first_name' => 'nullable|string',
+            'last_name' => 'nullable|string',
             'avatar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'phone' => 'required|string',
-            'address' => 'required|string',
-            'city_id' => 'required|exists:cities,id',
-            'zip' => 'required|string',
-            'country_id' => 'required|exists:countries,id',
-            'user_id' => 'required|exists:users,id',
+            'phone' => 'nullable|string',
+            'address' => 'nullable|string',
+            'city' => 'nullable|string',
+            'zip_code' => 'nullable|string',
+            'country' => 'nullable|string',
+            'user_id' => 'nullable|exists:users,id',
         ]);
-        // if user has profile then update profile
-        if ($user->profile) {
-            // if user has avatar then delete it
+        // delete old avatar if new avatar uploaded
+
+        if ($request->hasFile('avatar')) {
+            $request->avatar = $request->file('avatar')->storePublicly('avatars', 'public');
             if ($user->profile->avatar) {
-                unlink(public_path($user->profile->avatar));
+                if (Storage::disk('public')->exists($user->profile->avatar)) {
+                    Storage::disk('public')->delete($user->profile->avatar);
+                }
             }
-            // if user has avatar then upload it
-            if ($request->hasFile('avatar')) {
-                $request->avatar = $request->file('avatar')->store('public/avatars');
-            }
-            // update profile
-            $user->profile->update($request->all());
-        } else {
-            // if user has avatar then upload it
-            if ($request->hasFile('avatar')) {
-                $request->avatar = $request->file('avatar')->store('public/avatars');
-            }
-            // create new profile
-            $user->profile()->create($request->all());
+            $user->profile->avatar = $request->avatar;
         }
-        return redirect()->route('web.user.index', $user->id)->with('success', 'Profile updated successfully.');
+
+        $user->profile->update($request->all());
+
+
+        return redirect()->route('web.user.edit', $user->id)->with('success', 'Profile updated successfully.');
     }
 }

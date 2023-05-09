@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
-            $table->string('zip')->nullable();
+            $table->string('zip_code')->nullable();
             $table->string('country')->default('Morocco');
 
             $table->boolean('is_verified')->default(false);
