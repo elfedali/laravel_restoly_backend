@@ -18,8 +18,8 @@ class Category extends Model
         'name',
         'slug',
         'description',
-        "icon",
-        "image",
+        // "icon",
+        //"image",
         "color",
         'position',
         'is_active',
@@ -46,5 +46,9 @@ class Category extends Model
     public function children()
     {
         return $this->hasMany(Category::class, 'parent_id');
+    }
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'parent_id');
     }
 }

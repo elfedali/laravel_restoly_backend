@@ -51,6 +51,26 @@ Route::prefix('page')->group(function () {
     Route::delete('/{page}', [App\Http\Controllers\Admin\PageController::class, 'destroy'])->name('web.page.destroy');
 });
 
+Route::prefix('category')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('web.category.index');
+    Route::get('/create', [App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('web.category.create');
+    Route::post('/', [App\Http\Controllers\Admin\CategoryController::class, 'store'])->name('web.category.store');
+    Route::get('/{category}', [App\Http\Controllers\Admin\CategoryController::class, 'show'])->name('web.category.show');
+    Route::get('/{category}/edit', [App\Http\Controllers\Admin\CategoryController::class, 'edit'])->name('web.category.edit');
+    Route::put('/{category}', [App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('web.category.update');
+    Route::delete('/{category}', [App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('web.category.destroy');
+});
+
+Route::prefix('business')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\BusinessController::class, 'index'])->name('web.business.index');
+    Route::get('/create', [App\Http\Controllers\Admin\BusinessController::class, 'create'])->name('web.business.create');
+    Route::post('/', [App\Http\Controllers\Admin\BusinessController::class, 'store'])->name('web.business.store');
+    Route::get('/{business}', [App\Http\Controllers\Admin\BusinessController::class, 'show'])->name('web.business.show');
+    Route::get('/{business}/edit', [App\Http\Controllers\Admin\BusinessController::class, 'edit'])->name('web.business.edit');
+    Route::put('/{business}', [App\Http\Controllers\Admin\BusinessController::class, 'update'])->name('web.business.update');
+    Route::delete('/{business}', [App\Http\Controllers\Admin\BusinessController::class, 'destroy'])->name('web.business.destroy');
+});
+
 // Route::prefix('country')->group(function () {
 //     Route::get('/', [App\Http\Controllers\Admin\CountryController::class, 'index'])->name('web.country.index');
 //     Route::get('/create', [App\Http\Controllers\Admin\CountryController::class, 'create'])->name('web.country.create');

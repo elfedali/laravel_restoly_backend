@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Web;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Business;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class BusinessController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = User::all();
-        return view('users.index', compact('users'));
+        $businesses = Business::all();
+        return view('web.businesses.index', compact('businesses'));
     }
 
     /**
@@ -22,7 +22,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('web.businesses.create');
     }
 
     /**
@@ -36,25 +36,23 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(Business $business)
     {
-        // get user with profile 
-        $user->load('profile');
-        return view('users.show', compact('user'));
+        return view('web.businesses.show', compact('business'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(Business $business)
     {
-        //
+        return view('web.businesses.edit', compact('business'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Business $business)
     {
         //
     }
@@ -62,8 +60,9 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(Business $business)
     {
-        //
+        $business->delete();
+        return redirect()->route('web.business.index')->with('success', 'Business deleted successfully');
     }
 }

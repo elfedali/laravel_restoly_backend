@@ -48,6 +48,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('web.page.index') }}">{{ __('Pages') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('web.category.index') }}">{{ __('Categories') }}</a>
+                        </li>
 
                     </ul>
 
