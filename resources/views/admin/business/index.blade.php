@@ -29,21 +29,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($pages as $page)
+                                @foreach ($businesses as $business)
                                     <tr>
-                                        <td>{{ $page->id }}</td>
-                                        <td>{{ $page->title }}</td>
-                                        <td>{{ $page->slug }}</td>
-                                        <td>{{ $page->body }}</td>
-                                        <td>{{ $page->locale }}</td>
-                                        <td>{{ $page->created_at }}</td>
-                                        <td>{{ $page->updated_at }}</td>
+                                        <td>{{ $business->id }}</td>
+                                        <td>{{ $business->title }}</td>
+                                        <td>{{ $business->slug }}</td>
+                                        <td>{{ $business->body }}</td>
+                                        <td>{{ $business->locale }}</td>
+                                        <td>{{ $business->created_at }}</td>
+                                        <td>{{ $business->updated_at }}</td>
                                         <td>
-                                            <a href="{{ route('admin.page.show', ['page' => $page]) }}"
+                                            <a href="{{ route('admin.business.show', ['business' => $business]) }}"
                                                 class="btn btn-sm btn-outline-primary">Show</a>
-                                            <a href="{{ route('admin.page.edit', ['page' => $page]) }}"
+                                            <a href="{{ route('admin.business.edit', ['business' => $business]) }}"
                                                 class="btn btn-sm btn-outline-secondary">Edit</a>
-                                            <form action="{{ route('admin.page.destroy', ['page' => $page]) }}"
+                                            <form action="{{ route('admin.business.destroy', ['business' => $business]) }}"
                                                 method="POST" class="d-inline-block">
                                                 @csrf
                                                 @method('DELETE')

@@ -82,18 +82,18 @@
 
                                         <td class="text-end">
                                             <a href="{{ route('web.category.show', ['category' => $category]) }}"
-                                                class="btn btn-sm btn-outline-primary">
+                                                class="btn btn-sm btn-primary">
                                                 <i class="bi bi-eye"></i> &nbsp;
                                                 Show</a>
                                             <a href="{{ route('web.category.edit', ['category' => $category]) }}"
-                                                class="btn btn-sm btn-outline-secondary">
+                                                class="btn btn-sm btn-primary">
                                                 <i class="bi bi-pencil-square"></i> &nbsp;
                                                 Edit</a>
                                             <form action="{{ route('web.category.destroy', ['category' => $category]) }}"
                                                 method="POST" class="d-inline-block">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-outline-danger"
+                                                <button type="submit" class="btn btn-sm btn-danger"
                                                     onclick="return confirm('Are you sure ?')">
                                                     <i class="bi bi-trash"></i> &nbsp;
                                                     Delete</button>

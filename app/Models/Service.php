@@ -13,6 +13,7 @@ class Service extends Model
         "name",
         "slug",
         "description",
+        "is_active",
         "language"
     ];
 }

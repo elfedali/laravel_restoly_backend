@@ -71,6 +71,27 @@ Route::prefix('business')->group(function () {
     Route::delete('/{business}', [App\Http\Controllers\Admin\BusinessController::class, 'destroy'])->name('web.business.destroy');
 });
 
+Route::prefix('kitchen')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\kitchenController::class, 'index'])->name('web.kitchen.index');
+    Route::get('/create', [App\Http\Controllers\Admin\kitchenController::class, 'create'])->name('web.kitchen.create');
+    Route::post('/', [App\Http\Controllers\Admin\kitchenController::class, 'store'])->name('web.kitchen.store');
+    Route::get('/{kitchen}', [App\Http\Controllers\Admin\kitchenController::class, 'show'])->name('web.kitchen.show');
+    Route::get('/{kitchen}/edit', [App\Http\Controllers\Admin\kitchenController::class, 'edit'])->name('web.kitchen.edit');
+    Route::put('/{kitchen}', [App\Http\Controllers\Admin\kitchenController::class, 'update'])->name('web.kitchen.update');
+    Route::delete('/{kitchen}', [App\Http\Controllers\Admin\kitchenController::class, 'destroy'])->name('web.kitchen.destroy');
+});
+
+Route::prefix('service')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\ServiceController::class, 'index'])->name('web.service.index');
+    Route::get('/create', [App\Http\Controllers\Admin\ServiceController::class, 'create'])->name('web.service.create');
+    Route::post('/', [App\Http\Controllers\Admin\ServiceController::class, 'store'])->name('web.service.store');
+    Route::get('/{service}', [App\Http\Controllers\Admin\ServiceController::class, 'show'])->name('web.service.show');
+    Route::get('/{service}/edit', [App\Http\Controllers\Admin\ServiceController::class, 'edit'])->name('web.service.edit');
+    Route::put('/{service}', [App\Http\Controllers\Admin\ServiceController::class, 'update'])->name('web.service.update');
+    Route::delete('/{service}', [App\Http\Controllers\Admin\ServiceController::class, 'destroy'])->name('web.service.destroy');
+});
+
+
 // Route::prefix('country')->group(function () {
 //     Route::get('/', [App\Http\Controllers\Admin\CountryController::class, 'index'])->name('web.country.index');
 //     Route::get('/create', [App\Http\Controllers\Admin\CountryController::class, 'create'])->name('web.country.create');

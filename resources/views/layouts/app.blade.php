@@ -51,6 +51,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('web.category.index') }}">{{ __('Categories') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('web.kitchen.index') }}">{{ __('Kitchens') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('web.service.index') }}">{{ __('Services') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('web.business.index') }}">{{ __('Businesses') }}</a>
+                        </li>
 
                     </ul>
 

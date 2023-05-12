@@ -14,7 +14,7 @@ class BusinessController extends Controller
     public function index()
     {
         $businesses = Business::all();
-        return view('web.businesses.index', compact('businesses'));
+        return view('admin.business.index', compact('businesses'));
     }
 
     /**
@@ -22,7 +22,7 @@ class BusinessController extends Controller
      */
     public function create()
     {
-        return view('web.businesses.create');
+        return view('admin.business.create');
     }
 
     /**
@@ -38,7 +38,7 @@ class BusinessController extends Controller
      */
     public function show(Business $business)
     {
-        return view('web.businesses.show', compact('business'));
+        return view('admin.business.show', compact('business'));
     }
 
     /**
@@ -46,7 +46,7 @@ class BusinessController extends Controller
      */
     public function edit(Business $business)
     {
-        return view('web.businesses.edit', compact('business'));
+        return view('admin.business.edit', compact('business'));
     }
 
     /**

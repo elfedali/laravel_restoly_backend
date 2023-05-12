@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('description')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->string('language')->default('en');
         });
         // delivery, pickup, dine-in
@@ -30,6 +31,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('description')->nullable();
             $table->string('language')->default('en');
+            $table->boolean('is_active')->default(true);
         });
         // business types : restaurant, cafe, etc
         Schema::create('businesses', function (Blueprint $table) {
