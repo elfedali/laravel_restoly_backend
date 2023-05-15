@@ -3,12 +3,18 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-6">
                 <h1>
                     Businesses
                 </h1>
             </div>
-            <!-- /.col-12 -->
+            <!-- /.col-6-->
+            <div class="col-6 text-end">
+                <a href="{{ route('web.business.create') }}" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> &nbsp;
+                    Create</a>
+            </div>
+            <!-- /.col-6 -->
         </div>
         <!-- /.row -->
         <div class="row">
@@ -19,9 +25,9 @@
                             <thead>
                                 <tr>
                                     <td>ID</td>
-                                    <td>Title</td>
+                                    <td>name</td>
                                     <td>Slug</td>
-                                    <td>Body</td>
+
                                     <td>Locale</td>
                                     <td>Created At</td>
                                     <td>Updated At</td>
@@ -32,18 +38,18 @@
                                 @foreach ($businesses as $business)
                                     <tr>
                                         <td>{{ $business->id }}</td>
-                                        <td>{{ $business->title }}</td>
+                                        <td>{{ $business->name }}</td>
                                         <td>{{ $business->slug }}</td>
-                                        <td>{{ $business->body }}</td>
+
                                         <td>{{ $business->locale }}</td>
                                         <td>{{ $business->created_at }}</td>
                                         <td>{{ $business->updated_at }}</td>
                                         <td>
-                                            <a href="{{ route('admin.business.show', ['business' => $business]) }}"
+                                            <a href="{{ route('web.business.show', ['business' => $business]) }}"
                                                 class="btn btn-sm btn-outline-primary">Show</a>
-                                            <a href="{{ route('admin.business.edit', ['business' => $business]) }}"
+                                            <a href="{{ route('web.business.edit', ['business' => $business]) }}"
                                                 class="btn btn-sm btn-outline-secondary">Edit</a>
-                                            <form action="{{ route('admin.business.destroy', ['business' => $business]) }}"
+                                            <form action="{{ route('web.business.destroy', ['business' => $business]) }}"
                                                 method="POST" class="d-inline-block">
                                                 @csrf
                                                 @method('DELETE')

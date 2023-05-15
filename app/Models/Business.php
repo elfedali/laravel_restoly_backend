@@ -22,14 +22,17 @@ class Business extends Model
         "is_verified",
         "is_active",
 
-        "without_reservation",
+        "is_without_reservation",
 
         "address",
         "city",
-        "state",
-        "zip",
+        "zip_code",
         "country",
+
         "logo",
+
+        "latitude",
+        "longitude",
 
         "website",
         "facebook",
@@ -37,9 +40,11 @@ class Business extends Model
         "instagram",
         "linkedin",
         "youtube",
+        "tiktok",
+        "whatsApp",
 
-        "category_id",
-        "user_id"
+        "user_id",
+        "category_id"
     ];
 
     public function user()
@@ -50,5 +55,16 @@ class Business extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    //business_kitchen
+    public function kitchens()
+    {
+        return $this->belongsToMany(Kitchen::class);
+    }
+    // business_service
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
     }
 }

@@ -50,15 +50,19 @@ return new class extends Migration
             $table->boolean('is_verified')->default(false);
             $table->boolean('is_active')->default(true);
 
-            $table->boolean('without_reservation')->default(false);
+            $table->boolean('is_without_reservation')->default(false);
 
 
             $table->string('address')->nullable();
             $table->string('city')->nullable();
-            $table->string('region')->nullable();
-            $table->string('zip')->nullable();
-            $table->string('country')->default('Morocco');
+            $table->string('zip_code')->nullable();
+            $table->string('country')->nullable()->default('Morocco');
+
             $table->string('logo')->nullable();
+
+            // latitude and longitude
+            $table->decimal('latitude', 10, 8)->nullable();
+            $table->decimal('longitude', 11, 8)->nullable();
 
 
             $table->string('website')->nullable();
@@ -67,6 +71,8 @@ return new class extends Migration
             $table->string('instagram')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('youtube')->nullable();
+            $table->string('tiktok')->nullable();
+            $table->string('whatsapp')->nullable();
 
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained(); // select from categories table ( restaurant, cafe, hotel, etc )
