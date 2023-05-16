@@ -25,14 +25,15 @@
                         <div class="card-body">
                             <table class="table">
                                 <thead>
-                                    <td>ID</td>
-                                    <td>Full name</td>
-                                    <td>Email</td>
-                                    <td>Is Active</td>
-                                    <td>Role</td>
-                                    <td>Created At</td>
-                                    <td>Updated At</td>
-                                    <td class="text-end"> Action</td>
+                                    <th>ID</th>
+                                    <th>Full name</th>
+                                    <th>Email</th>
+                                    <th>Is Active</th>
+                                    <th>Role</th>
+                                    <th>City</th>
+                                    <th>Created At</th>
+                                    <th>Updated At</th>
+                                    <th class="text-end"> Action</th>
                                 </thead>
                                 <tbody>
                                     @foreach ($users as $user)
@@ -42,7 +43,7 @@
                                             </td>
                                             <td>
                                                 {{-- if has profile show first_name and last_name --}}
-                                                @if ($user->profile)
+                                                @if ($user->profile and $user->profile->first_name or $user->profile->last_name)
                                                     {{ $user->profile->first_name }} {{ $user->profile->last_name }}
                                                 @else
                                                     <small class="text-muted">Not set</span>
@@ -62,6 +63,13 @@
                                                 {{ $user->role }}
                                             </td>
                                             <td>
+                                                @if ($user->profile and $user->profile->city)
+                                                    {{ $user->profile->city }}
+                                                @else
+                                                    <span class="text-muted">Not set</span>
+                                                @endif
+                                            </td>
+                                            <td>
                                                 {{ $user->created_at }}
                                             </td>
                                             <td>
@@ -74,7 +82,7 @@
                                                     Show
                                                 </a>
                                                 <a href="{{ route('web.user.edit', ['user' => $user->id]) }}"
-                                                    class="btn btn-sm btn-primary">
+                                                    class="btn btn-sm btn-warning">
                                                     <i class="bi bi-pencil-square"></i> &nbsp;
                                                     Edit
                                                 </a>

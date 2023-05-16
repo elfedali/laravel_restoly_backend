@@ -40,7 +40,8 @@
                                 @foreach ($businesses as $business)
                                     <tr>
                                         <td>{{ $business->id }}</td>
-                                        <td>{{ $business->name }}
+                                        <td>
+                                            {{ Str::limit($business->name, 20, '...') }}
                                             <div>
                                                 <small> <small class="text-muted">
                                                         {{ $business->slug }}</small></small>

@@ -91,23 +91,12 @@ Route::prefix('service')->group(function () {
     Route::delete('/{service}', [App\Http\Controllers\Admin\ServiceController::class, 'destroy'])->name('web.service.destroy');
 });
 
-
-// Route::prefix('country')->group(function () {
-//     Route::get('/', [App\Http\Controllers\Admin\CountryController::class, 'index'])->name('web.country.index');
-//     Route::get('/create', [App\Http\Controllers\Admin\CountryController::class, 'create'])->name('web.country.create');
-//     Route::post('/', [App\Http\Controllers\Admin\CountryController::class, 'store'])->name('web.country.store');
-//     Route::get('/{country}', [App\Http\Controllers\Admin\CountryController::class, 'show'])->name('web.country.show');
-//     Route::get('/{country}/edit', [App\Http\Controllers\Admin\CountryController::class, 'edit'])->name('web.country.edit');
-//     Route::put('/{country}', [App\Http\Controllers\Admin\CountryController::class, 'update'])->name('web.country.update');
-//     Route::delete('/{country}', [App\Http\Controllers\Admin\CountryController::class, 'destroy'])->name('web.country.destroy');
-// });
-
-// Route::prefix('/city')->group(function () {
-//     Route::get('/', [App\Http\Controllers\Admin\CityController::class, 'index'])->name('web.city.index');
-//     Route::get('/create', [App\Http\Controllers\Admin\CityController::class, 'create'])->name('web.city.create');
-//     Route::post('/', [App\Http\Controllers\Admin\CityController::class, 'store'])->name('web.city.store');
-//     Route::get('/{city}', [App\Http\Controllers\Admin\CityController::class, 'show'])->name('web.city.show');
-//     Route::get('/{city}/edit', [App\Http\Controllers\Admin\CityController::class, 'edit'])->name('web.city.edit');
-//     Route::put('/{city}', [App\Http\Controllers\Admin\CityController::class, 'update'])->name('web.city.update');
-//     Route::delete('/{city}', [App\Http\Controllers\Admin\CityController::class, 'destroy'])->name('web.city.destroy');
-// });
+Route::prefix('language')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\LanguageController::class, 'index'])->name('web.language.index');
+    Route::get('/create', [App\Http\Controllers\Admin\LanguageController::class, 'create'])->name('web.language.create');
+    Route::post('/', [App\Http\Controllers\Admin\LanguageController::class, 'store'])->name('web.language.store');
+    Route::get('/{language}', [App\Http\Controllers\Admin\LanguageController::class, 'show'])->name('web.language.show');
+    Route::get('/{language}/edit', [App\Http\Controllers\Admin\LanguageController::class, 'edit'])->name('web.language.edit');
+    Route::put('/{language}', [App\Http\Controllers\Admin\LanguageController::class, 'update'])->name('web.language.update');
+    Route::delete('/{language}', [App\Http\Controllers\Admin\LanguageController::class, 'destroy'])->name('web.language.destroy');
+});

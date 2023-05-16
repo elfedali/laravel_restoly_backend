@@ -46,19 +46,7 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            {{-- is_actvie --}}
-                            <div class="mb-3">
-                                <label for="is_active" class="form-label">Is Active <span
-                                        class="text-danger">*</span></label>
-                                <select name="is_active" id="is_active" class="form-control">
-                                    <option value="">Select Status</option>
-                                    <option value="1" {{ old('is_active') == 1 ? 'selected' : '' }}>Active</option>
-                                    <option value="0" {{ old('is_active') == 0 ? 'selected' : '' }}>Inactive</option>
-                                </select>
-                                @error('is_active')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
+
                             {{-- phone_one --}}
                             <div class="mb-3">
                                 <label for="phone_one" class="form-label">Phone One <span
@@ -103,20 +91,7 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            {{-- is_active --}}
-                            <div class="mb-3">
-                                <label for="is_active" class="form-label">Is Active <span
-                                        class="text-danger">*</span></label>
-                                <select name="is_active" id="is_active" class="form-control">
-                                    <option value="">Select Status</option>
-                                    <option value="1" {{ old('is_active') == 1 ? 'selected' : '' }}>Active</option>
-                                    <option value="0" {{ old('is_active') == 0 ? 'selected' : '' }}>Inactive</option>
-                                </select>
-                                @error('is_active')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
 
-                            </div>
                             {{-- is_without_reservation --}}
                             <div class="mb-3">
                                 <label for="is_without_reservation" class="form-label">Is Without Reservation <span
@@ -134,8 +109,7 @@
                             </div>
                             {{-- address --}}
                             <div class="mb-3">
-                                <label for="address" class="form-label">Address <span
-                                        class="text-danger">*</span></label>
+                                <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
                                 <textarea name="address" id="address" cols="30" rows="4" class="form-control">{{ old('address') }}</textarea>
                                 @error('address')
                                     <div class="text-danger">{{ $message }}</div>
@@ -307,6 +281,19 @@
                                     @endforeach
                                 </select>
                                 @error('category_id')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            {{-- is_active --}}
+                            <div class="mb-3  p-3" style="background-color:beige">
+                                <label for="is_active" class="form-label">Is Active <span
+                                        class="text-danger">*</span></label>
+                                <select name="is_active" id="is_active" class="form-control">
+                                    <option value="">Select Status</option>
+                                    <option value="1" {{ old('is_active') == 1 ? 'selected' : '' }}>Active</option>
+                                    <option value="0" {{ old('is_active') == 0 ? 'selected' : '' }}>Inactive</option>
+                                </select>
+                                @error('is_active')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>

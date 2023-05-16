@@ -5,14 +5,14 @@
         <div class="row">
             <div class="col-6">
                 <h1>
-                    Pages
+                    Languages
                 </h1>
             </div>
             <!-- /.col-6 -->
             <div class="col-6">
-                <a href="{{ route('web.page.create') }}" class="btn btn-success float-end">
+                <a href="{{ route('web.language.create') }}" class="btn btn-primary float-end">
                     <i class="bi bi-plus-circle"></i> &nbsp;
-                    Add Page</a>
+                    Add Language</a>
             </div>
             <!-- /.col-6 -->
         </div>
@@ -24,51 +24,44 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <td>ID</td>
-                                    <td>Title</td>
-                                    <td>Locale</td>
-                                    <td>Position </td>
-                                    <td>Is Active </td>
-                                    <td>Created At</td>
-                                    <td>Updated At</td>
-                                    <td>Actions</td>
+                                    <th>ID</th>
+                                    <th>Slug</th>
+                                    <th>Name</th>
+                                    <th>Is Active</th>
+                                    <th>Created At</th>
+                                    <th>Updated At</th>
+                                    <th class="text-end">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($pages as $page)
+                                @foreach ($languages as $language)
                                     <tr>
-                                        <td>{{ $page->id }}</td>
-                                        <td>{{ Str::limit($page->title, 20, '...') }}</td>
-                                        <td>{{ $page->locale }}</td>
-                                        <td> {{ $page->position }}</td>
-
+                                        <td>{{ $language->id }}</td>
+                                        <td>{{ $language->slug }}</td>
+                                        <td>{{ $language->name }}</td>
                                         <td>
-                                            @if ($page->is_active)
+                                            @if ($language->is_active)
                                                 <span class="badge bg-success">Active</span>
                                             @else
                                                 <span class="badge bg-danger">Inactive</span>
                                             @endif
                                         </td>
-
-
-
-                                        <td>{{ $page->created_at }}</td>
-                                        <td>{{ $page->updated_at }}</td>
-                                        <td>
-                                            <a href="{{ route('web.page.show', ['page' => $page]) }}"
+                                        <td>{{ $language->created_at }}</td>
+                                        <td>{{ $language->updated_at }}</td>
+                                        <td class="text-end">
+                                            <a href="{{ route('web.language.show', ['language' => $language]) }}"
                                                 class="btn btn-sm btn-primary">
                                                 <i class="bi bi-eye"></i> &nbsp;
                                                 Show</a>
-                                            <a href="{{ route('web.page.edit', ['page' => $page]) }}"
-                                                class="btn btn-sm btn-primary">
+                                            <a href="{{ route('web.language.edit', ['language' => $language]) }}"
+                                                class="btn btn-sm btn-warning">
                                                 <i class="bi bi-pencil-square"></i> &nbsp;
                                                 Edit</a>
-                                            <form action="{{ route('web.page.destroy', ['page' => $page]) }}" method="POST"
-                                                class="d-inline-block">
+                                            <form action="{{ route('web.language.destroy', ['language' => $language]) }}"
+                                                method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger"
-                                                    onclick="return confirm('Are you sure ?')">
+                                                <button type="submit" class="btn btn-sm btn-danger">
                                                     <i class="bi bi-trash"></i> &nbsp;
                                                     Delete</button>
                                             </form>

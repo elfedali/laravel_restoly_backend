@@ -4,11 +4,40 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+//
 a{
-    
     text-decoration: none;
-    &:hover{
-         
-        text-decoration: underline;
+}
+
+.bg-auth-login {
+    background-image: url("/public/images/auth/login-1.svg");
+    background-position: bottom right;
+    background-color: $primary;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+//
+.form-auth-wrapper {
+    padding: 2rem 1rem;
+
+    .logo {
+        //margin-bottom: 1rem;
     }
+
+    h1 {
+     //   margin-bottom: 3rem;
+    }
+}
+
+//
+.app-name {
+    letter-spacing: 0.12rem;
+    line-height: 1;
+}
+label {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: $gray-600;
+    margin-bottom: 0.5rem;
 }

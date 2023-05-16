@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        //$this->middleware('role:admin|super-admin');
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        //$this->middleware('role:admin|super-admin');
+    }
+
     public function update(Request $request, User $user)
     {
         // validate profile data

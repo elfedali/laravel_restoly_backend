@@ -16,327 +16,42 @@ class CategorySeeder extends Seeder
         //  Create 4 categories
         // \App\Models\Category::factory()->count(6)->create();
         $categories = [
-            [
-                'name' => 'Appliances',
-                'slug' => 'appliances',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
 
+
+
+            [
+                "name" => "Fast Food",
+                "slug" => "fast-food",
+                "position" => 0,
+                "is_active" => true,
+                "locale" => "en",
+                "parent_id" => null,
             ],
             [
-                'name' => 'Apps & Games',
-                'slug' => 'apps-games',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
+                "name" => "Restaurant",
+                "slug" => "restaurant",
+                "position" => 0,
+                "is_active" => true,
+                "locale" => "en",
+                "parent_id" => null,
             ],
             [
-                'name' => 'Arts, Crafts, & Sewing',
-                'slug' => 'arts-crafts-&-sewing',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
+                "name" => "Pizza",
+                "slug" => "pizza",
+                "position" => 0,
+                "is_active" => true,
+                "locale" => "en",
+                "parent_id" => null,
             ],
             [
-                'name' => 'Automotive Parts & Accessories',
-                'slug' => 'automotive-parts-accessories',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
+                "name" => "Coffee",
+                "slug" => "coffee",
+                "position" => 0,
+                "is_active" => true,
+                "locale" => "en",
+                "parent_id" => null,
             ],
-            [
-                'name' => 'Baby',
-                'slug' => 'baby',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
 
-            ],
-            [
-                'name' => 'Beauty & Personal Care',
-                'slug' => 'beauty-personal-care',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Books',
-                'slug' => 'books',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Cell Phones & Accessories',
-                'slug' => 'cell-phones-accessories',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Clothing, Shoes and Jewelry',
-                'slug' => 'clothing-shoes-and-jewelry',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Collectibles & Fine Art',
-                'slug' => 'collectibles-fine-art',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Computers',
-                'slug' => 'computers',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Electronics',
-                'slug' => 'electronics',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Garden & Outdoor',
-                'slug' => 'garden-outdoor',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Grocery & Gourmet Food',
-                'slug' => 'grocery-gourmet-food',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Handmade',
-                'slug' => 'handmade',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Health, Household & Baby Care',
-                'slug' => 'health-household-baby-care',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Home & Kitchen',
-                'slug' => 'home-kitchen',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Industrial & Scientific',
-                'slug' => 'industrial-scientific',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Kindle',
-                'slug' => 'kindle',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Luggage & Travel Gear',
-                'slug' => 'luggage-travel-gear',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Movies & TV',
-                'slug' => 'movies-tv',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Musical Instruments',
-                'slug' => 'musical-instruments',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Office Products',
-                'slug' => 'office-products',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Pet Supplies',
-                'slug' => 'pet-supplies',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Premium Beauty',
-                'slug' => 'premium-beauty',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Sports & Outdoors',
-                'slug' => 'sports-outdoors',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Tools & Home Improvement',
-                'slug' => 'tools-home-improvement',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Toys & Games',
-                'slug' => 'toys-games',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Video Games',
-                'slug' => 'video-games',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-
-            ],
-            [
-                'name' => 'Restaurants',
-                'slug' => 'restaurants',
-                'position' => 0,
-                'is_active' => true,
-                'locale' => 'en',
-                'parent_id' => null,
-                'children' => [
-                    [
-                        "name" => "American",
-                        "slug" => "american",
-                        "position" => 0,
-                        "is_active" => true,
-                        "locale" => "en",
-                        "parent_id" => null,
-                    ],
-                    [
-                        "name" => "Asian",
-                        "slug" => "asian",
-                        "position" => 0,
-                        "is_active" => true,
-                        "locale" => "en",
-                        "parent_id" => null,
-                    ],
-                    [
-                        "name" => "Bakery",
-                        "slug" => "bakery",
-                        "position" => 0,
-                        "is_active" => true,
-                        "locale" => "en",
-                        "parent_id" => null,
-                    ],
-                    [
-                        "name" => "Barbecue",
-                        "slug" => "barbecue",
-                        "position" => 0,
-                        "is_active" => true,
-                        "locale" => "en",
-                        "parent_id" => null,
-
-                    ],
-                    [
-                        "name" => "Italian",
-                        "slug" => "italian",
-                        "position" => 0,
-                        "is_active" => true,
-                        "locale" => "en",
-                        "parent_id" => null,
-                    ],
-                    [
-                        "name" => "Mexican",
-                        "slug" => "mexican",
-                        "position" => 0,
-                        "is_active" => true,
-                        "locale" => "en",
-                        "parent_id" => null,
-                    ]
-                ]
-
-            ]
         ];
 
         foreach ($categories as $category) {

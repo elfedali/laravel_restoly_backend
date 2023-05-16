@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\kitchen;
+use App\Models\Language;
 use Illuminate\Http\Request;
 
-class kitchenController extends Controller
+class LanguageController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -19,8 +20,8 @@ class kitchenController extends Controller
      */
     public function index()
     {
-        $kitchens = kitchen::all();
-        return view('admin.kitchen.index', compact('kitchens'));
+        $languages = Language::all();
+        return view('admin.languages.index', compact('languages'));
     }
 
     /**
@@ -28,7 +29,7 @@ class kitchenController extends Controller
      */
     public function create()
     {
-        return view('admin.kitchen.create');
+        return view('admin.languages.create');
     }
 
     /**
@@ -36,73 +37,71 @@ class kitchenController extends Controller
      */
     public function store(Request $request)
     {
-        // validate kitchen data
+        // validate language data
         $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:kitchens',
-            'description' => 'nullable|string',
+            'slug' => 'required|string|max:255|unique:languages',
             'is_active' => 'nullable|boolean',
-            'language' => 'nullable|string|max:255',
         ]);
+
         if ($request->is_active == 'on') {
             $request->is_active = true;
         } else {
             $request->is_active = false;
         }
 
-        $kitchen = kitchen::create($request->all());
+        $language = Language::create($request->all());
 
-        return redirect()->route('web.kitchen.index')->with('success', 'kitchen created successfully.');
+        return redirect()->route('web.language.index')->with('success', 'Language created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(kitchen $kitchen)
+    public function show(Language $language)
     {
-        return view('admin.kitchen.show', compact('kitchen'));
+        return view('admin.languages.show', compact('language'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(kitchen $kitchen)
+    public function edit(Language $language)
     {
-        return view('admin.kitchen.edit', compact('kitchen'));
+        //
+        return view('admin.languages.edit', compact('language'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, kitchen $kitchen)
+    public function update(Request $request, Language $language)
     {
-
-        // validate kitchen data
+        // validate language data
         $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:kitchens,slug,' . $kitchen->id,
-            'description' => 'nullable|string',
+            'slug' => 'required|string|max:255|unique:languages,slug,' . $language->id,
             'is_active' => 'nullable|boolean',
-            'language' => 'nullable|string|max:255',
         ]);
+
         if ($request->is_active == 'on') {
             $request->is_active = true;
         } else {
             $request->is_active = false;
         }
 
-        $kitchen->update($request->all());
+        $language->update($request->all());
 
-        return redirect()->route('web.kitchen.index')->with('success', 'kitchen updated successfully.');
+        return redirect()->route('web.language.index')->with('success', 'Language updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(kitchen $kitchen)
+    public function destroy(Language $language)
     {
-
-        $kitchen->delete();
-        return redirect()->route('web.kitchen.index')->with('success', 'kitchen deleted successfully');
+        //
+        $language->delete();
+        return redirect()->route('web.language.index')->with('success', 'Language deleted successfully.');
     }
 }

@@ -22,9 +22,6 @@ class ProfileController extends Controller
             'email' => 'required|email|unique:users,email,' . $user->id,
             'phone' => 'required|unique:profiles,phone,' . $user->profile->id,
             'address' => 'required',
-            'city_id' => 'required|exists:cities,id',
-            'region_id' => 'required|exists:regions,id',
-            'country_id' => 'required|exists:countries,id',
         ]);
 
         $user->update($request->all());
