@@ -234,7 +234,11 @@
 
                         </table>
                         <!-- /.table table-bordered table-striped -->
-                        .
+                        <a href="{{ route('web.business.edit', ['business' => $business]) }}"
+                            class="btn btn-sm btn-primary">
+                            <i class="bi bi-pencil-square"></i> &nbsp;
+                            Edit</a>
+                        <a href="{{ route('web.business.index') }}" class="btn btn-link">Back</a>
                     </div>
                     <!-- /.card-body -->
                 </div>

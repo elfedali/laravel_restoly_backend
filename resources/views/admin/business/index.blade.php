@@ -21,14 +21,16 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <table class="table">
+                        <table class="table table-sm">
                             <thead>
                                 <tr>
                                     <td>ID</td>
                                     <td>name</td>
-                                    <td>Slug</td>
+                                    <td>User owner</td>
+                                    <td>Is Active</td>
+                                    <td> Is Without Reservation</td>
+                                    <td>Category</td>
 
-                                    <td>Locale</td>
                                     <td>Created At</td>
                                     <td>Updated At</td>
                                     <td>Actions</td>
@@ -38,23 +40,60 @@
                                 @foreach ($businesses as $business)
                                     <tr>
                                         <td>{{ $business->id }}</td>
-                                        <td>{{ $business->name }}</td>
-                                        <td>{{ $business->slug }}</td>
+                                        <td>{{ $business->name }}
+                                            <div>
+                                                <small> <small class="text-muted">
+                                                        {{ $business->slug }}</small></small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('web.user.show', $business->user->id) }}">
+                                                {{ $business->user->id }} -
+                                                {{ $business->user->email }}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            @if ($business->is_active)
+                                                <span class="badge bg-success">Active</span>
+                                            @else
+                                                <span class="badge bg-danger">Inactive</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($business->is_without_reservation)
+                                                <span class="badge bg-success">Without Reservation</span>
+                                            @else
+                                                <span class="badge bg-warning">With Reservation</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('web.category.show', $business->category->id) }}">
+                                                {{ $business->category->name }}
+                                            </a>
+                                        </td>
 
-                                        <td>{{ $business->locale }}</td>
-                                        <td>{{ $business->created_at }}</td>
-                                        <td>{{ $business->updated_at }}</td>
+
+
+
+                                        <td>{{ $business->created_at->format('d-m-Y') }}</td>
+                                        <td>{{ $business->updated_at->format('d-m-Y') }}</td>
                                         <td>
                                             <a href="{{ route('web.business.show', ['business' => $business]) }}"
-                                                class="btn btn-sm btn-outline-primary">Show</a>
+                                                class="btn btn-sm btn-primary">
+                                                <i class="bi bi-eye"></i> &nbsp;
+                                                Show</a>
                                             <a href="{{ route('web.business.edit', ['business' => $business]) }}"
-                                                class="btn btn-sm btn-outline-secondary">Edit</a>
+                                                class="btn btn-sm btn-primary">
+                                                <i class="bi bi-pencil-square"></i> &nbsp;
+                                                Edit</a>
                                             <form action="{{ route('web.business.destroy', ['business' => $business]) }}"
                                                 method="POST" class="d-inline-block">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-outline-danger"
-                                                    onclick="return confirm('Are you sure ?')">Delete</button>
+                                                <button type="submit" class="btn btn-sm btn-danger"
+                                                    onclick="return confirm('Are you sure ?')">
+                                                    <i class="bi bi-trash"></i> &nbsp;
+                                                    Delete</button>
                                             </form>
                                         </td>
                                 @endforeach

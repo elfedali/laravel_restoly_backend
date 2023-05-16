@@ -25,7 +25,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <table class="table table-striped">
+                        <table class="table table-sm">
                             <thead>
                                 <tr>
                                     <td>ID</td>

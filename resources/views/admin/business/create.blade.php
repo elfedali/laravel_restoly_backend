@@ -170,15 +170,17 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            {{-- logo --}}
+                            {{-- logo image --}}
                             <div class="mb-3">
-                                <label for="logo" class="form-label">Logo <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="logo" name="logo"
-                                    placeholder="Logo" value="{{ old('logo') }}">
-                                @error('logo')
+                                <label for="logo_image" class="form-label">Logo Image <span
+                                        class="text-danger">*</span></label>
+                                <input type="file" class="form-control" id="logo_image" name="logo_image"
+                                    placeholder="Logo Image" value="{{ old('logo_image') }}">
+                                @error('logo_image')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+
                             {{-- latitude --}}
                             <div class="mb-3">
                                 <label for="latitude" class="form-label">Latitude <span
@@ -282,7 +284,7 @@
                                     @foreach ($users as $user)
                                         <option value="{{ $user->id }}"
                                             {{ old('user_id') == $user->id ? 'selected' : '' }}>
-                                            {{ $user->name }}
+                                            {{ $user->id }} - {{ $user->email }}
                                         </option>
                                     @endforeach
                                 </select>
