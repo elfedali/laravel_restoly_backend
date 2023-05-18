@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\kitchen;
+use App\Models\Kitchen;
 use Illuminate\Http\Request;
 
 class KitchenController extends Controller
@@ -19,7 +19,7 @@ class KitchenController extends Controller
      */
     public function index()
     {
-        $kitchens = kitchen::all();
+        $kitchens = Kitchen::all();
         return view('admin.kitchen.index', compact('kitchens'));
     }
 
@@ -50,7 +50,7 @@ class KitchenController extends Controller
             $request->is_active = false;
         }
 
-        $kitchen = kitchen::create($request->all());
+        $kitchen = Kitchen::create($request->all());
 
         return redirect()->route('web.kitchen.index')->with('success', 'kitchen created successfully.');
     }
@@ -58,7 +58,7 @@ class KitchenController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(kitchen $kitchen)
+    public function show(Kitchen $kitchen)
     {
         return view('admin.kitchen.show', compact('kitchen'));
     }
@@ -66,7 +66,7 @@ class KitchenController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(kitchen $kitchen)
+    public function edit(Kitchen $kitchen)
     {
         return view('admin.kitchen.edit', compact('kitchen'));
     }
@@ -74,7 +74,7 @@ class KitchenController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, kitchen $kitchen)
+    public function update(Request $request, Kitchen $kitchen)
     {
 
         // validate kitchen data
@@ -93,16 +93,16 @@ class KitchenController extends Controller
 
         $kitchen->update($request->all());
 
-        return redirect()->route('web.kitchen.index')->with('success', 'kitchen updated successfully.');
+        return redirect()->route('web.kitchen.index')->with('success', 'Kitchen updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(kitchen $kitchen)
+    public function destroy(Kitchen $kitchen)
     {
 
         $kitchen->delete();
-        return redirect()->route('web.kitchen.index')->with('success', 'kitchen deleted successfully');
+        return redirect()->route('web.kitchen.index')->with('success', 'Kitchen deleted successfully');
     }
 }
