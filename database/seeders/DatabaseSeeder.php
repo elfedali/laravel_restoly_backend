@@ -30,6 +30,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'subscriber@restoly.ma',
             'role' => 'subscriber',
         ]);
+        $this->call([
+            ProfileSeeder::class,
+        ]);
 
         $this->call([
             LanguageSeeder::class,
