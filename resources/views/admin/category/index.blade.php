@@ -28,16 +28,16 @@
                         <table class="table table-sm">
                             <thead>
                                 <tr>
-                                    <td>ID</td>
-                                    <td>Name</td>
-                                    <td>Icon</td>
-                                    <td>Image</td>
-                                    <td>Color </td>
-                                    <td>Position </td>
-                                    <td>Is Active</td>
-                                    <td>Parent Category</td>
-                                    <td>Locale</td>
-                                    <td class="text-end">Actions</td>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Icon</th>
+                                    <th>Image</th>
+                                    <th>Color </th>
+                                    <th>Position </th>
+                                    <th>Is Active</th>
+                                    <th>Parent Category</th>
+                                    <th>Language</th>
+                                    <th class="text-end">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -78,7 +78,7 @@
                                                 <span class="badge bg-secondary">No Parent</span>
                                             @endif
                                         </td>
-                                        <td> {{ $category->locale }} </td>
+                                        <td> {{ $category->language }} </td>
 
                                         <td class="text-end">
                                             <a href="{{ route('web.category.show', ['category' => $category]) }}"
@@ -86,7 +86,7 @@
                                                 <i class="bi bi-eye"></i> &nbsp;
                                                 Show</a>
                                             <a href="{{ route('web.category.edit', ['category' => $category]) }}"
-                                                class="btn btn-sm btn-primary">
+                                                class="btn btn-sm btn-warning">
                                                 <i class="bi bi-pencil-square"></i> &nbsp;
                                                 Edit</a>
                                             <form action="{{ route('web.category.destroy', ['category' => $category]) }}"

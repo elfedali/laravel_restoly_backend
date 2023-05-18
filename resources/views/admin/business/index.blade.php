@@ -24,16 +24,16 @@
                         <table class="table table-sm">
                             <thead>
                                 <tr>
-                                    <td>ID</td>
-                                    <td>name</td>
-                                    <td>User owner</td>
-                                    <td>Is Active</td>
-                                    <td> Is Without Reservation</td>
-                                    <td>Category</td>
+                                    <th>ID</th>
+                                    <th>name</th>
+                                    <th>User owner</th>
+                                    <th>Is Active</th>
+                                    <th> Is Without Reservation</th>
+                                    <th>Category</th>
 
-                                    <td>Created At</td>
-                                    <td>Updated At</td>
-                                    <td>Actions</td>
+                                    <th>Created At</th>
+                                    <th>Updated At</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>

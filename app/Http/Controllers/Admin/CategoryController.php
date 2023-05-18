@@ -47,7 +47,7 @@ class CategoryController extends Controller
             'color' => 'nullable|string|max:255',
             'position' => 'nullable|integer',
             'is_active' => 'nullable|boolean',
-            'locale' => 'required|string|max:255',
+            'language' => 'nullable|string|max:255',
             'parent_id' => 'nullable|integer|exists:categories,id',
         ]);
 

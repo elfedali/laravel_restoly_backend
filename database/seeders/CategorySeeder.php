@@ -16,9 +16,6 @@ class CategorySeeder extends Seeder
         //  Create 4 categories
         // \App\Models\Category::factory()->count(6)->create();
         $categories = [
-
-
-
             [
                 "name" => "Fast Food",
                 "slug" => "fast-food",
@@ -51,8 +48,9 @@ class CategorySeeder extends Seeder
                 "locale" => "en",
                 "parent_id" => null,
             ],
-
         ];
+
+
 
         foreach ($categories as $category) {
             $this->createCategory($category);

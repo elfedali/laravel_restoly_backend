@@ -46,9 +46,9 @@ class BusinessController extends Controller
             'description' => 'nullable|string',
             'phone_one' => 'nullable|string|max:255',
             'phone_two' => 'nullable|string|max:255',
-            "is_verified" => "nullable|boolean",
+            "is_verified" => "required|boolean",
             "is_active" => "nullable|boolean",
-            "is_without_reservation" => "nullable|boolean",
+            "is_without_reservation" => "required|boolean",
 
             "address" => "nullable|string|max:255",
             "city" => "nullable|string|max:255",

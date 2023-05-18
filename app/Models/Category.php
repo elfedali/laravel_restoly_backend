@@ -23,7 +23,7 @@ class Category extends Model
         "color",
         'position',
         'is_active',
-        'locale',
+        //'language',
         'parent_id',
     ];
 

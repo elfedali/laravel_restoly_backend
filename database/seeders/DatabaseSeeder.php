@@ -29,12 +29,21 @@ class DatabaseSeeder extends Seeder
             'email' => 'subscriber@restoly.ma',
             'role' => 'subscriber',
         ]);
+
         $this->call([
             LanguageSeeder::class,
         ]);
 
         $this->call([
             CategorySeeder::class,
+        ]);
+
+        $this->call([
+            KitchenSeeder::class,
+        ]);
+
+        $this->call([
+            ServiceSeeder::class,
         ]);
     }
 }

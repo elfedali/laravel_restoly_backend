@@ -25,7 +25,7 @@ return new class extends Migration
 
             $table->integer("position")->default(0);
             $table->boolean("is_active")->default(true);
-            $table->string('locale', 2)->default('en');
+            $table->string('language', 2)->default('en');
 
             // parent_id
             $table->foreignId('parent_id')->nullable()->constrained('categories');

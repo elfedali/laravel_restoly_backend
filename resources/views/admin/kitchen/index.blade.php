@@ -24,15 +24,14 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <td>ID</td>
-                                    <td>Name</td>
-                                    <td>Slug</td>
-                                    <td>Description</td>
-                                    <td> Is Active</td>
-                                    <td>Language</td>
-                                    <td>Created At</td>
-                                    <td>Updated At</td>
-                                    <td>Actions</td>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Slug</th>
+                                    <th> Is Active</th>
+                                    <th>Language</th>
+                                    <th>Created At</th>
+                                    <th>Updated At</th>
+                                    <th class="text-end">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,7 +40,7 @@
                                         <td>{{ $kitchen->id }}</td>
                                         <td>{{ $kitchen->name }}</td>
                                         <td>{{ $kitchen->slug }}</td>
-                                        <td>{{ $kitchen->description }}</td>
+
                                         <td>
                                             @if ($kitchen->is_active)
                                                 <span class="badge bg-success">Active</span>
@@ -52,13 +51,13 @@
                                         <td>{{ $kitchen->language }}</td>
                                         <td>{{ $kitchen->created_at }}</td>
                                         <td>{{ $kitchen->updated_at }}</td>
-                                        <td>
+                                        <td class="text-end">
                                             <a href="{{ route('web.kitchen.show', ['kitchen' => $kitchen]) }}"
                                                 class="btn btn-sm btn-primary">
                                                 <i class="bi bi-eye"></i> &nbsp;
                                                 Show</a>
                                             <a href="{{ route('web.kitchen.edit', ['kitchen' => $kitchen]) }}"
-                                                class="btn btn-sm btn-primary">
+                                                class="btn btn-sm btn-warning">
                                                 <i class="bi bi-pencil-square"></i> &nbsp;
                                                 Edit</a>
                                             <form action="{{ route('web.kitchen.destroy', ['kitchen' => $kitchen]) }}"

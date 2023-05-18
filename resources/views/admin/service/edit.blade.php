@@ -49,15 +49,24 @@
                             @enderror
                         </div>
 
-                        {{-- language --}}
+                        {{-- language  select --}}
+                        <?php $languages = App\Models\Language::all(); ?>
                         <div class="mb-3">
                             <label for="language" class="form-label">Language <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="language" name="language" placeholder="Language"
-                                value="{{ old('language', $service->language) }}">
+                            <select name="language" id="language" class="form-control">
+                                <option value="">Select Language</option>
+                                @foreach ($languages as $language)
+                                    <option value="{{ $language->slug }}"
+                                        {{ old('language', $service->language) == $language->slug ? 'selected' : '' }}>
+                                        {{ $language->name }}
+                                    </option>
+                                @endforeach
+                            </select>
                             @error('language')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
                         {{-- is_active --}}
                         <div class="mb-3">
                             <label for="is_active" class="form-label">Is Active <span class="text-danger">*</span></label>
