@@ -21,7 +21,7 @@ class CategorySeeder extends Seeder
                 "slug" => "fast-food",
                 "position" => 0,
                 "is_active" => true,
-                "locale" => "en",
+                "language" => "en",
                 "parent_id" => null,
             ],
             [
@@ -29,7 +29,7 @@ class CategorySeeder extends Seeder
                 "slug" => "restaurant",
                 "position" => 0,
                 "is_active" => true,
-                "locale" => "en",
+                "language" => "en",
                 "parent_id" => null,
             ],
             [
@@ -37,7 +37,7 @@ class CategorySeeder extends Seeder
                 "slug" => "pizza",
                 "position" => 0,
                 "is_active" => true,
-                "locale" => "en",
+                "language" => "en",
                 "parent_id" => null,
             ],
             [
@@ -45,7 +45,7 @@ class CategorySeeder extends Seeder
                 "slug" => "coffee",
                 "position" => 0,
                 "is_active" => true,
-                "locale" => "en",
+                "language" => "en",
                 "parent_id" => null,
             ],
         ];
@@ -64,7 +64,7 @@ class CategorySeeder extends Seeder
             'slug' => $category['slug'],
             'position' => $category['position'],
             'is_active' => $category['is_active'],
-            'locale' => $category['locale'],
+            'language' => $category['language'],
             'parent_id' => $category['parent_id'],
         ]);
 
@@ -83,7 +83,7 @@ class CategorySeeder extends Seeder
             'slug' => $child['slug'],
             'position' => $child['position'],
             'is_active' => $child['is_active'],
-            'locale' => $child['locale'],
+            'language' => $child['language'],
             'parent_id' => $category->id,
         ]);
     }

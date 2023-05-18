@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'email' => 'webmaster@restoly.ma',
             'role' => 'super_admin',
+
         ]);
 
 

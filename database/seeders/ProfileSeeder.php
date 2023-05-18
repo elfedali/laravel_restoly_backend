@@ -28,19 +28,20 @@ class ProfileSeeder extends Seeder
         //     'email_verification_code' => 'Mohamed Elgharib',
         // ]);
         //edit the user ! profile
-        // $user = \App\Models\User::find(1);
-        // $user->profile()->update([
-        //     'first_name' => 'Mohamed',
-        //     'last_name' => 'Elgharib',
-        //     'phone' => '0600000000',
-        //     'address' => 'Rue 1, Sidi Maarouf',
-        //     'city' => 'Casablanca',
-        //     'zip_code' => 90522,
-        //     'country' => 'Morocco',
-        //     'is_verified' => true,
-        //     'is_active' => true,
-        //     'phone_verification_code' => 'Mohamed Elgharib',
-        //     'email_verification_code' => 'Mohamed Elgharib',
-        // ]);
+        $user = \App\Models\User::find(1);
+        $user->profile()->update([
+            'first_name' => 'Abdessamad',
+            'last_name' => 'fdl',
+            'phone' => '0627018957',
+            'address' => null,
+            'city' => null,
+            'zip_code' => null,
+            'country' => 'Morocco',
+            'is_verified' => true,
+            "avatar" => "avatars/WxMHAByk16HipRIWmFjjVspjtHyDQwKp1OCH68Af.jpg",
+            'is_active' => true,
+            'phone_verification_code' => null,
+            'email_verification_code' => null,
+        ]);
     }
 }
