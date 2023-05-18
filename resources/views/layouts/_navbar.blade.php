@@ -30,7 +30,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('web.language.index') }}">{{ __('Languages') }}</a>
                 </li>
-
             </ul>
 
             <!-- Right Side Of Navbar -->

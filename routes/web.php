@@ -72,13 +72,13 @@ Route::prefix('business')->group(function () {
 });
 
 Route::prefix('kitchen')->group(function () {
-    Route::get('/', [App\Http\Controllers\Admin\kitchenController::class, 'index'])->name('web.kitchen.index');
-    Route::get('/create', [App\Http\Controllers\Admin\kitchenController::class, 'create'])->name('web.kitchen.create');
-    Route::post('/', [App\Http\Controllers\Admin\kitchenController::class, 'store'])->name('web.kitchen.store');
-    Route::get('/{kitchen}', [App\Http\Controllers\Admin\kitchenController::class, 'show'])->name('web.kitchen.show');
-    Route::get('/{kitchen}/edit', [App\Http\Controllers\Admin\kitchenController::class, 'edit'])->name('web.kitchen.edit');
-    Route::put('/{kitchen}', [App\Http\Controllers\Admin\kitchenController::class, 'update'])->name('web.kitchen.update');
-    Route::delete('/{kitchen}', [App\Http\Controllers\Admin\kitchenController::class, 'destroy'])->name('web.kitchen.destroy');
+    Route::get('/', [App\Http\Controllers\Admin\KitchenController::class, 'index'])->name('web.kitchen.index');
+    Route::get('/create', [App\Http\Controllers\Admin\KitchenController::class, 'create'])->name('web.kitchen.create');
+    Route::post('/', [App\Http\Controllers\Admin\KitchenController::class, 'store'])->name('web.kitchen.store');
+    Route::get('/{kitchen}', [App\Http\Controllers\Admin\KitchenController::class, 'show'])->name('web.kitchen.show');
+    Route::get('/{kitchen}/edit', [App\Http\Controllers\Admin\KitchenController::class, 'edit'])->name('web.kitchen.edit');
+    Route::put('/{kitchen}', [App\Http\Controllers\Admin\KitchenController::class, 'update'])->name('web.kitchen.update');
+    Route::delete('/{kitchen}', [App\Http\Controllers\Admin\KitchenController::class, 'destroy'])->name('web.kitchen.destroy');
 });
 
 Route::prefix('service')->group(function () {

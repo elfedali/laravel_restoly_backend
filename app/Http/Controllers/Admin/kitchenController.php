@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\kitchen;
 use Illuminate\Http\Request;
 
-class kitchenController extends Controller
+class KitchenController extends Controller
 {
     public function __construct()
     {
